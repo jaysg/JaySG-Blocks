@@ -7,7 +7,7 @@
     "name": "jaysg",
     "email": "505412988@qq.com"
   },
-  "repository": "ilabservice/intelab-wfe-3.0/tree/blocks/UserSetting",
+  "repository": "https://github.com/jaysg/JaySG-Blocks/tree/master/UserSetting",
   "scripts": {
     "dev": "umi dev"
   },
