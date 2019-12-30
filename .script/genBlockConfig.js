@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { join } = require('path');
-const gitUrl = 'https://github.com/ilabservice/intelab-wfe-3.0';
+const gitUrl = 'https://github.com/jaysg/JaySG-Block';
 
 const menuData = {
   usersetting: '个人设置',
@@ -73,7 +73,7 @@ const getFolderTreeData = filePath => {
             url: `${gitUrl}/tree/blocks/${fileName}`,
             path: fileName,
             features: getFeature(join(filePath, fileName)),
-            img: `${gitUrl}/tree/blocks/${fileName}/snapshot.png?raw=true`,
+            img: `${gitUrl}/tree/master/${fileName}/snapshot.png?raw=true`,
             tags: genBlockTags(fileName),
             previewUrl: `${gitUrl}/tree/blocks/${fileName}`,
           };
