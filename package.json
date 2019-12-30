@@ -1,0 +1,73 @@
+{
+  "private": true,
+  "scripts": {
+    "format-imports": "import-sort --write '**/*.{js,jsx,ts,tsx}'",
+    "lint": "npm run lint:js && npm run lint:style",
+    "lint-staged": "lint-staged && node ./.script/genBlockConfig.js&& git add ./umi-block.json",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty  ./ && npm run lint:style",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./",
+    "lint:style": "stylelint --fix \"**/*.less\" --syntax less",
+    "prettier": "prettier -c --write '**/*'",
+    "screenshot": "pro screenshot",
+    "start": "umi dev",
+    "test": "umi test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged --no-verify"
+    }
+  },
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{js,jsx}": "npm run lint-staged:js",
+    "**/*.{js,ts,tsx}": "npm run lint-staged:js"
+  },
+  "dependencies": {
+    "@ant-design/pro-cli": "^1.0.5",
+    "@ant-design/pro-layout": "^4.5.11",
+    "@types/react-dom": "^16.8.4",
+    "antd": "3.26.3",
+    "bizcharts": "^3.5.4",
+    "cross-env": "^6.0.0",
+    "numeral": "^2.0.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "umi": "^2.8.9",
+    "umi-plugin-block-dev": "^2.2.1",
+    "umi-plugin-react": "^1.9.7",
+    "umi-request": "^1.0.0",
+    "umi-utils": "^1.5.1"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.2.7",
+    "@types/numeral": "^0.0.25",
+    "@umijs/fabric": "^1.0.5",
+    "check-prettier": "^1.0.3",
+    "eslint": "^5.16.0",
+    "husky": "^3.0.2",
+    "import-sort-cli": "^6.0.0",
+    "import-sort-parser-babylon": "^6.0.0",
+    "import-sort-parser-typescript": "^6.0.0",
+    "import-sort-style-module": "^6.0.0",
+    "lint-staged": "^9.2.3",
+    "prettier": "^1.18.2",
+    "stylelint": "^10.0.1",
+    "typescript": "^3.5.1"
+  },
+  "peerDependencies": {
+    "antd": "^3.17.0"
+  },
+  "optionalDependencies": {
+    "puppeteer": "^1.17.0"
+  },
+  "checkFiles": [
+    "**/*.ts*",
+    "**/*.less",
+    "**/*.md"
+  ]
+}
