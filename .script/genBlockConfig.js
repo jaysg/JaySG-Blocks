@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { join } = require('path');
-const gitUrl = 'https://github.com/jaysg/JaySG-Block';
+const gitUrl = 'https://github.com/jaysg/JaySG-Blocks';
 
 const menuData = {
   usersetting: '个人设置',
@@ -70,12 +70,12 @@ const getFolderTreeData = filePath => {
             name: menuData[genBlockName(fileName)],
             key: fileName,
             description: pkg.description,
-            url: `${gitUrl}/tree/blocks/${fileName}`,
+            url: `${gitUrl}/tree/master/${fileName}`,
             path: fileName,
             features: getFeature(join(filePath, fileName)),
             img: `${gitUrl}/tree/master/${fileName}/snapshot.png?raw=true`,
             tags: genBlockTags(fileName),
-            previewUrl: `${gitUrl}/tree/blocks/${fileName}`,
+            previewUrl: `${gitUrl}/tree/master/${fileName}`,
           };
         }
       }
@@ -87,13 +87,13 @@ const getFolderTreeData = filePath => {
     key: 'EmptyPage',
     name: '空白页面',
     description: '一个空白的页面，一切都从这里开始！',
-    url: `${gitUrl}/tree/blocks`,
+    url: `${gitUrl}/tree/master`,
     path: 'NewPage',
     features: ['antd'],
     img:
       'https://raw.githubusercontent.com/ant-design/pro-blocks/master/EmptyPage/snapshot.png?raw=true',
     tags: ['空白页'],
-    previewUrl: `${gitUrl}/tree/blocks`,
+    previewUrl: `${gitUrl}/tree/master`,
   });
 
   return blockList;
